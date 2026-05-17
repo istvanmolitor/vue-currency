@@ -34,8 +34,22 @@ const handleSubmit = async () => {
   try {
     isSaving.value = true
     errors.value = {}
-    await currencyService.create(form)
+    const response: any = await currencyService.create(form)
     toastService.success('Valuta sikeresen létrehozva!')
+
+    const createdCurrencyId = response?.data?.data?.id ?? response?.data?.id ?? response?.id
+
+    if (createdCurrencyId !== undefined && createdCurrencyId !== null) {
+      await router.push({
+        name: 'admin-currency-edit',
+        params: {
+          id: String(createdCurrencyId),
+        },
+      })
+
+      return
+    }
+
     router.push('/admin/currency')
   } catch (error: any) {
     console.error('Hiba a valuta létrehozásakor:', error)
