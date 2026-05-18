@@ -108,15 +108,13 @@ onMounted(() => {
         </span>
       </template>
       <template #row-actions="{ row }">
-        <div class="flex items-center gap-2">
-          <EditButton
-            @click="editCurrency(row.id!)"
-          />
-          <DeleteButton
-            @confirm="deleteCurrency(row.id!)"
-            :disabled="row.is_default"
-          />
-        </div>
+        <EditButton
+          @click="editCurrency(row.id!)"
+        />
+        <DeleteButton
+          @confirm="deleteCurrency(row.id!)"
+          :disabled="row.is_default"
+        />
       </template>
       <template #empty>
         Nincs megjeleníthető valuta.
