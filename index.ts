@@ -11,4 +11,7 @@ export { CurrencyMenuBuilder, currencyMenuBuilder } from './config/menuBuilder'
 // Router
 export { default as router } from './router/index'
 
+// Components
+export { default as CurrencySelect } from './components/CurrencySelect.vue'
+
 

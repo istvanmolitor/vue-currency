@@ -52,6 +52,9 @@ export const currencyService = {
   getAll(params?: { search?: string; sort?: string; direction?: string; page?: number }) {
     return api.get<PaginatedResponse<Currency>>('/api/admin/currency/currencies', { params })
   },
+  searchForSelect(params?: { search?: string; page?: number; per_page?: number; include_disabled?: boolean }) {
+    return api.get<PaginatedResponse<Currency>>('/api/admin/currency/currencies/select', { params })
+  },
   getById(id: number | string) {
     return api.get<SingleResponse<Currency>>(`/api/admin/currency/currencies/${id}`)
   },
