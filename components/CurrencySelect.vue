@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import Checkbox from '@admin/components/ui/Checkbox.vue'
 import Modal from '@admin/components/ui/Modal.vue'
+import Icon from '@admin/components/ui/Icon.vue'
 import { currencyService, type Currency } from '../services/currencyService'
 
 interface Props {
@@ -357,23 +358,15 @@ const clearSelection = (): void => {
             :class="{ 'bg-accent text-accent-foreground': modelValue === currency.id }"
             @click="selectCurrency(currency.id)"
           >
-            <span class="min-w-0 flex-1">
-              <span class="block truncate font-medium">{{ currency.code }} - {{ currency.name }}</span>
-              <span class="block truncate text-xs text-muted-foreground">
-                {{ currency.symbol }}
-                <span v-if="!currency.isEnabled">- Letiltva</span>
-              </span>
-            </span>
+             <span class="min-w-0 flex-1">
+               <span class="block truncate font-medium">{{ currency.code }} - {{ currency.name }}</span>
+               <span class="block truncate text-xs text-muted-foreground">
+                 {{ currency.symbol }}
+                 <span v-if="!currency.isEnabled">- Letiltva</span>
+               </span>
+             </span>
 
-            <svg
-              v-if="modelValue === currency.id"
-              class="h-4 w-4 shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
+             <Icon v-if="modelValue === currency.id" name="check" class="h-4 w-4 shrink-0" />
           </button>
         </div>
       </div>
