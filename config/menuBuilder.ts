@@ -22,7 +22,8 @@ export class CurrencyMenuBuilder extends MenuBuilder {
       title: 'Deviza',
       path: '/admin/currency',
       icon: CircleDollarSign,
-      order: 50
+      order: 50,
+      permission: 'currency'
     })
 
     return menu
