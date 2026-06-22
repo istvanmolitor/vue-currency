@@ -19,7 +19,6 @@ const pagination = ref<PaginationMeta>({
 })
 
 const columns: Column<Currency>[] = [
-  { key: 'id', label: 'ID', sortable: true, width: '80px' },
   { key: 'code', label: 'Kód', sortable: true, width: '100px' },
   { key: 'name', label: 'Név', sortable: true },
   { key: 'symbol', label: 'Szimbólum', sortable: false, width: '100px' },
