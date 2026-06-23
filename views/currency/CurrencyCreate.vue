@@ -118,15 +118,15 @@ const handleSubmit = async () => {
 
         <div class="space-y-3">
           <div class="flex items-center space-x-2">
-            <Checkbox id="is_symbol_first" v-model:checked="form.is_symbol_first" />
+            <Checkbox id="is_symbol_first" v-model="form.is_symbol_first" />
             <Label for="is_symbol_first" class="cursor-pointer">Szimbólum az összeg előtt</Label>
           </div>
           <div class="flex items-center space-x-2">
-            <Checkbox id="is_enabled" v-model:checked="form.is_enabled" />
+            <Checkbox id="is_enabled" v-model="form.is_enabled" />
             <Label for="is_enabled" class="cursor-pointer">Engedélyezett</Label>
           </div>
           <div class="flex items-center space-x-2">
-            <Checkbox id="is_default" v-model:checked="form.is_default" />
+            <Checkbox id="is_default" v-model="form.is_default" />
             <Label for="is_default" class="cursor-pointer">Alapértelmezett valuta</Label>
           </div>
         </div>
