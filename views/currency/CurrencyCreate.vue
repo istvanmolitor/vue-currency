@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { AdminLayout, BackButton, toastService, InputError } from '@admin'
+import InputField from '@admin/components/ui/InputField.vue'
 import Label from '@admin/components/ui/Label.vue'
 import Input from '@admin/components/ui/Input.vue'
 import Card from '@admin/components/ui/Card.vue'
@@ -83,19 +84,11 @@ const handleSubmit = async () => {
             <Input id="code" v-model="form.code" placeholder="USD" maxlength="3" />
             <InputError :message="errors.code" />
           </div>
-          <div class="space-y-2">
-            <Label for="name">Név *</Label>
-            <Input id="name" v-model="form.name" placeholder="US Dollar" />
-            <InputError :message="errors.name" />
-          </div>
+          <InputField id="name" label="Név" v-model="form.name" placeholder="US Dollar" :required="true" :errors="errors.name" />
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="space-y-2">
-            <Label for="symbol">Szimbólum *</Label>
-            <Input id="symbol" v-model="form.symbol" placeholder="$" />
-            <InputError :message="errors.symbol" />
-          </div>
+          <InputField id="symbol" label="Szimbólum" v-model="form.symbol" placeholder="$" :required="true" :errors="errors.symbol" />
           <div class="space-y-2">
             <Label for="decimals">Tizedesjegyek</Label>
             <Input id="decimals" v-model.number="form.decimals" type="number" min="0" max="8" />
