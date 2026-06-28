@@ -18,13 +18,7 @@ const pagination = ref<PaginationMeta>({
   total: 0
 })
 
-const columns: Column<Currency>[] = [
-  { key: 'code', label: 'Kód', sortable: true, width: '100px' },
-  { key: 'name', label: 'Név', sortable: true },
-  { key: 'symbol', label: 'Szimbólum', sortable: false, width: '100px' },
-  { key: 'is_default', label: 'Alapértelmezett', sortable: false, width: '150px' },
-  { key: 'is_enabled', label: 'Engedélyezett', sortable: false, width: '150px' },
-]
+const columns = ref<Column[]>([])
 
 const fetchCurrencies = async (params: {
   search?: string
@@ -37,6 +31,7 @@ const fetchCurrencies = async (params: {
     const response = await currencyService.getAll(params)
     currencies.value = response.data.data
     pagination.value = response.data.meta
+    columns.value = (response.data.columns ?? []) as Column[]
   } catch (error) {
     console.error('Hiba a valuták betöltésekor:', error)
   } finally {
